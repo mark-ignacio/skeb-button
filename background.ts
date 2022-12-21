@@ -28,7 +28,6 @@ chrome.runtime.onMessage.addListener((message, _, sendMessage) => {
     .then((e) => {
       console.log(e)
       if (!!e) {
-        console.log("sendMessage")
         sendMessage(e)
       }
     })

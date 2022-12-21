@@ -8,12 +8,17 @@ export const config: PlasmoContentScript = {
 }
 
 async function upsertButton(data: SkebUserResponse) {
-  // firefox really wants this sanitized
   // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Safely_inserting_external_content_into_a_page#html_sanitization
   const anchorHTML = buildSkebLink(data.screen_name, buildDescription(data))
-  document
-    .querySelector("[data-testid='UserProfileHeader_Items']")
-    .insertAdjacentHTML("afterbegin", DOMPurify.sanitize(anchorHTML))
+  const headerItems = document.querySelector(
+    "[data-testid='UserProfileHeader_Items']"
+  )
+  // remove existing skebify element
+  const existing = headerItems.querySelector(".skeb")
+  if (existing !== null) {
+    existing.remove()
+  }
+  headerItems.insertAdjacentHTML("afterbegin", DOMPurify.sanitize(anchorHTML))
 }
 
 function buildSkebLink(name: string, descriptions: string[]) {
@@ -68,7 +73,6 @@ let observer = new MutationObserver(async (mutations) => {
           const r = await chrome.runtime.sendMessage({
             id: data.author.identifier
           })
-          console.log(r)
           await upsertButton(r)
           break
         }
