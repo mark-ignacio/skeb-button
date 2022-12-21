@@ -27,6 +27,7 @@
     "typescript": "4.9.3"
   },
   "manifest": {
+    "default_locale": "en",
     "host_permissions": [
       "https://skeb.jp/api/*"
     ]

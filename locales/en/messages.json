@@ -1,0 +1,16 @@
+{
+    "acceptable": {
+        "message": "Asking ¥$1",
+        "description": "The asking price"
+    },
+    "request": {
+        "message": "Fulfilled: $1",
+        "description": "Total fulfilled/completed (public) commissions."
+    },
+    "sent_public_works": {
+        "message": "Requests: $1"
+    },
+    "registered": {
+        "message": "Registered"
+    }
+}

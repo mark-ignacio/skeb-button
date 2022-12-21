@@ -37,23 +37,30 @@ function buildSkebLink(name: string, descriptions: string[]) {
 function buildDescription(data: SkebUserResponse): string[] {
   const descriptions: string[] = []
   if (data.acceptable) {
-    descriptions.push("募集中: " + data.default_amount.toLocaleString() + "円")
+    descriptions.push(
+      chrome.i18n.getMessage("acceptable", data.default_amount.toLocaleString())
+    )
   }
 
   if (data.agreed_creator_guidelines && data.received_works_count > 0) {
     descriptions.push(
-      "納品: " + data.received_works_count.toLocaleString() + "件"
+      chrome.i18n.getMessage(
+        "request",
+        data.received_works_count.toLocaleString()
+      )
     )
   }
 
   if (!descriptions.length) {
     if (data.sent_public_works_count > 0) {
       descriptions.push(
-        data.sent_public_works_count.toLocaleString() +
-          "件の取引実績があるクライアント"
+        chrome.i18n.getMessage(
+          "sent_public_works",
+          data.sent_public_works_count.toLocaleString()
+        )
       )
     } else {
-      descriptions.push("登録済み")
+      descriptions.push(chrome.i18n.getMessage("registered"))
     }
   }
   return descriptions

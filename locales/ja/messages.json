@@ -1,0 +1,14 @@
+{
+  "acceptable": {
+    "message": "募集中: $1円"
+  },
+  "request": {
+    "message": "納品: $1件"
+  },
+  "sent_public_works": {
+    "message": "$1 件の取引実績があるクライアント"
+  },
+  "registered": {
+    "message": "登録済み"
+  }
+}
