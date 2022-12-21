@@ -1,7 +1,7 @@
 {
   "name": "skebify",
   "displayName": "Skebify",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "description": "A more modern version of the Skeb Button extension.",
   "author": "Mark Ignacio",
   "scripts": {
