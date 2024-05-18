@@ -4,7 +4,10 @@ import type { PlasmoContentScript } from "plasmo"
 import type { SkebUserResponse } from "~lib"
 
 export const config: PlasmoContentScript = {
-  matches: ["*://*.twitter.com/*"]
+  matches: [
+    "*://*.twitter.com/*",
+    "*://*.x.com/*"
+  ]
 }
 
 async function upsertButton(data: SkebUserResponse) {
