@@ -28,6 +28,9 @@
   },
   "manifest": {
     "default_locale": "en",
+    "permissions": [
+      "scripting"
+    ],
     "host_permissions": [
       "https://skeb.jp/api/*"
     ]

@@ -1,9 +1,9 @@
 import DOMPurify from "dompurify"
-import type { PlasmoContentScript } from "plasmo"
+import type { PlasmoCSConfig } from "plasmo"
 
 import type { SkebUserResponse } from "~lib"
 
-export const config: PlasmoContentScript = {
+export const config: PlasmoCSConfig = {
   matches: [
     "*://*.twitter.com/*",
     "*://*.x.com/*"
