@@ -81,7 +81,7 @@ let observer = new MutationObserver(async (mutations) => {
         if (scriptNode.getAttribute("type") === "application/ld+json") {
           const data = JSON.parse(scriptNode.innerText)
           const r = await chrome.runtime.sendMessage({
-            id: data.author.identifier
+            id: data.mainEntity.identifier
           })
           await upsertButton(r)
           break
